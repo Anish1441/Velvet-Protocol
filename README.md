@@ -6,7 +6,7 @@ A single-player heist thriller where you infiltrate the **Nocturne Woodland Muse
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 Velvet-Protocol/
 ├── client/              # Next.js 14 frontend (React, Tailwind, Framer Motion)
@@ -31,7 +31,7 @@ Velvet-Protocol/
 
 ---
 
-## ⚡ Prerequisites
+## Prerequisites
 
 | Tool | Version | Purpose |
 |------|---------|---------|
@@ -41,7 +41,7 @@ Velvet-Protocol/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone & setup env
 
@@ -87,7 +87,7 @@ make dev-server   # terminal 2
 
 ---
 
-## 🔧 Environment Modes
+## Environment Modes
 | `MODEL_MODE` | What happens |
 |--------------|-------------|
 | `local` *(default)* | Uses Ollama on your machine — zero API cost, zero lag |
