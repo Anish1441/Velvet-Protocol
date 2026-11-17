@@ -7,7 +7,6 @@ A single-player heist thriller where you infiltrate the **Nocturne Woodland Muse
 ---
 
 ## 📂 Project Structure
-
 ```
 Velvet-Protocol/
 ├── client/              # Next.js 14 frontend (React, Tailwind, Framer Motion)
@@ -89,7 +88,6 @@ make dev-server   # terminal 2
 ---
 
 ## 🔧 Environment Modes
-
 | `MODEL_MODE` | What happens |
 |--------------|-------------|
 | `local` *(default)* | Uses Ollama on your machine — zero API cost, zero lag |
@@ -97,17 +95,7 @@ make dev-server   # terminal 2
 
 Set in `.env`. The game auto-detects if Ollama is running and falls back gracefully.
 
-----
-
-## 👥 Contributors & Team
-
-- Rohan Deogaonkar (`rohandeogaonkar.9@gmail.com`)
-- Manthan Keni (`manthankeni9@gmail.com`)
-- Priyanshu Hazra (`priyanshu.hazra2007@gmail.com`)
-- Anish Apparaju
 
 ---
-
 ## 📄 License
-
 MIT
