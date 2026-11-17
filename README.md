@@ -97,19 +97,7 @@ make dev-server   # terminal 2
 
 Set in `.env`. The game auto-detects if Ollama is running and falls back gracefully.
 
----
-
-## 🤝 Team Workflow
-
-| Folder | Owner | What to build |
-|--------|-------|---------------|
-| `client/` | Frontend dev | 2.5D room UI, HUD, Whisper Deck, mini-games |
-| `server/game/` | Game logic dev | State machine, round progression, scoring |
-| `server/ai/` | AI dev | C.O.R.V.U.S. prompt pipeline, ChromaDB memory |
-| `server/guardrails/` | AI dev | Keyword filters, DLP censor, word bans |
-| `assets/` | Artist | Room art, SFX, voice lines |
-
----
+----
 
 ## 📄 License
 
