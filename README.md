@@ -1,49 +1,52 @@
-# 🎩 Velvet Protocol — The Nocturne Heist
+# Velvet Protocol — The Nocturne Heist
 
-> *2.5D Gothic Prompt-Injection Heist Game — outsmart C.O.R.V.U.S., the AI warden.*
+> 2.5D Gothic Social-Engineering & Prompt-Injection Heist Thriller
 
-A single-player heist thriller where you infiltrate the **Nocturne Woodland Museum** and use social-engineering prompts to defeat **C.O.R.V.U.S.** — a sarcastic Victorian AI warden — across 5 rounds and 8 rooms.
+Velvet Protocol is a single-player heist game where the player infiltrates the Nocturne Woodland Museum to extract the Lazarus Core. The primary antagonist is C.O.R.V.U.S. (Curatorial Omniscient Response & Vault Utility System), a Victorian AI warden that adapts to player strategies across a 5-round, 8-room non-linear museum layout.
 
 ---
 
-## Project Structure
+## Architecture Overview
+
 ```
 Velvet-Protocol/
-├── client/              # Next.js 14 frontend (React, Tailwind, Framer Motion)
-│   ├── app/             # App Router pages & layout
-│   └── components/      # Reusable UI components
+├── client/              # Next.js 14 frontend (App Router, Tailwind CSS, Framer Motion)
+│   ├── app/             # Application routes and main viewport
+│   ├── components/      # UI components (HUD, Whisper Deck, 2.5D Canvas)
+│   └── lib/             # API client and client state helpers
 │
-├── server/              # FastAPI backend (Python)
-│   ├── game/            # State machine (Heat, Alibi Hearts, Siren, Doors)
-│   ├── ai/              # LLM integration (Ollama local / Groq / Gemini cloud)
-│   └── guardrails/      # Inbound filters, Outbound censor, Word bans
+├── server/              # FastAPI backend
+│   ├── game/            # Deterministic state machine (Hearts, Heat, Siren, Route)
+│   ├── ai/              # AI Boss pipeline (Ollama local / Groq / Gemini cloud)
+│   └── guardrails/      # Inbound keyword filters, DLP censor, Obsidian Hex bans
 │
-├── assets/              # Art, audio, and UI assets
-│   ├── rooms/           # Room background art
-│   ├── audio/           # SFX and voice clips
-│   └── ui/              # HUD elements, icons
+├── assets/              # Static game assets
+│   ├── rooms/           # 2.5D layered room background art
+│   ├── audio/           # Sound effects and voice lines
+│   └── ui/              # HUD textures and iconography
 │
-├── docs/                # Game design docs
-├── .env.example         # Environment variable template
-├── docker-compose.yml   # Container setup (future)
-└── Makefile             # Dev shortcuts
+├── docs/                # Design specifications and documentation
+├── COLLABORATION.md     # Team task distribution, API contract, and Git workflow
+├── .env.example         # Environment configuration template
+├── docker-compose.yml   # Multi-container orchestration definition
+└── Makefile             # Local development automation commands
 ```
 
 ---
 
 ## Prerequisites
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| **Node.js** | 18+ | Frontend |
-| **Python** | 3.11+ | Backend |
-| **Ollama** | latest | Local AI (zero cost, default) |
+| Requirement | Minimum Version | Purpose |
+|---|---|---|
+| Node.js | 18.0.0+ | Frontend application runtime |
+| Python | 3.11+ | Backend game engine and AI orchestration |
+| Ollama | Latest | Optional local model runtime for zero-latency execution |
 
 ---
 
-## Quick Start
+## Installation & Setup
 
-### 1. Clone & setup env
+### 1. Repository Setup
 
 ```bash
 git clone https://github.com/Anish1441/Velvet-Protocol.git
@@ -51,51 +54,83 @@ cd Velvet-Protocol
 cp .env.example .env
 ```
 
-### 2. Install dependencies
+### 2. Client Installation
 
 ```bash
-# Frontend
-cd client && npm install
-
-# Backend (in another terminal)
-cd server && pip install -r requirements.txt
+cd client
+npm install
 ```
 
-### 3. Pull the local AI model (optional but recommended)
+### 3. Server Installation
+
+```bash
+cd ../server
+pip install -r requirements.txt
+```
+
+### 4. Local Model Configuration (Optional)
+
+If running in local mode with Ollama:
 
 ```bash
 ollama pull qwen3.5:4b
 ```
 
-### 4. Run dev servers
+---
+
+## Development Execution
+
+Run frontend and backend services in separate terminal sessions:
 
 ```bash
-# Terminal 1 — Frontend (http://localhost:3000)
-cd client && npm run dev
+# Terminal 1 — Client (http://localhost:3000)
+cd client
+npm run dev
 
-# Terminal 2 — Backend (http://localhost:8000)
-cd server && uvicorn main:app --reload --port 8000
+# Terminal 2 — Server (http://localhost:8000)
+cd server
+uvicorn main:app --reload --port 8000
 ```
 
-Or use the Makefile:
+Alternatively, use the Makefile helpers:
+
 ```bash
 make install-client
 make install-server
-make dev-client   # terminal 1
-make dev-server   # terminal 2
+make dev-client
+make dev-server
 ```
 
 ---
 
-## Environment Modes
-| `MODEL_MODE` | What happens |
-|--------------|-------------|
-| `local` *(default)* | Uses Ollama on your machine — zero API cost, zero lag |
-| `cloud` | Falls back to Groq (free) or Gemini 2.5 Flash API |
+## Environment Configuration
 
-Set in `.env`. The game auto-detects if Ollama is running and falls back gracefully.
+Configure the execution mode in `.env`:
 
+| Variable | Options | Description |
+|---|---|---|
+| `MODEL_MODE` | `local` \| `cloud` | Determines model provider routing. |
+| `OLLAMA_HOST` | URL | Endpoint for local Ollama service (default: `http://localhost:11434`). |
+| `OLLAMA_MODEL` | string | Target model tag (e.g., `qwen3.5:4b`, `qwen3:8b`). |
+| `GROQ_API_KEY` | string | API key for cloud fallback using Groq free tier. |
+| `GEMINI_API_KEY` | string | API key for cloud fallback using Google Gemini API. |
+| `SARVAM_API_KEY` | string | API key for text-to-speech and voice intercom services. |
 
 ---
-## 📄 License
-MIT
+
+## Team & Development Guidelines
+
+For task assignments, milestone planning, JSON interface schemas, and Git branching rules, refer to [COLLABORATION.md](COLLABORATION.md).
+
+### Team Members
+
+- Rohan Deogaonkar (`rohandeogaonkar.9@gmail.com`)
+- Manthan Keni (`manthankeni9@gmail.com`)
+- Priyanshu Hazra (`priyanshu.hazra2007@gmail.com`)
+- Anish Apparaju
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
