@@ -122,15 +122,5 @@ Configure the execution mode in `.env`:
 
 For task assignments, milestone planning, JSON interface schemas, and Git branching rules, refer to [COLLABORATION.md](COLLABORATION.md).
 
-### Team Members
-
-- Rohan Deogaonkar (`rohandeogaonkar.9@gmail.com`)
-- Manthan Keni (`manthankeni9@gmail.com`)
-- Priyanshu Hazra (`priyanshu.hazra2007@gmail.com`)
-- Anish Apparaju
-
----
-
 ## License
-
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
