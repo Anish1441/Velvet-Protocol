@@ -99,6 +99,15 @@ Set in `.env`. The game auto-detects if Ollama is running and falls back gracefu
 
 ----
 
+## 👥 Contributors & Team
+
+- Rohan Deogaonkar (`rohandeogaonkar.9@gmail.com`)
+- Manthan Keni (`manthankeni9@gmail.com`)
+- Priyanshu Hazra (`priyanshu.hazra2007@gmail.com`)
+- Anish Apparaju
+
+---
+
 ## 📄 License
 
 MIT
